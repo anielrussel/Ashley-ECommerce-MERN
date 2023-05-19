@@ -4,6 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { userSignup, userLogin } from "./controllers/UserController";
+import { productController } from "./controllers/ProductController";
 
 dotenv.config();
 
@@ -24,8 +25,12 @@ app.get("/", (req: Request, res: Response) => {
   res.send("server is running");
 });
 
+// user
 app.post("/signup", userSignup)
 app.post("/login", userLogin)
+
+// product
+app.post("/uploadProduct", productController)
 
 // connect to database
 if (!MONGO_URI) {

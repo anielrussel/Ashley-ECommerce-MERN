@@ -16,6 +16,8 @@ const Login: React.FC = () => {
     confirmPassword: "",
   });
 
+  const REACT_SERVER = import.meta.env.VITE_REACT_SERVER
+
   const dispatch = useDispatch()
 
   const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +40,7 @@ const Login: React.FC = () => {
   
     const { email, password } = formData;
     if (email && password) {
-      fetch("http://localhost:4000/login", {
+      fetch(`${REACT_SERVER}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

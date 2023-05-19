@@ -2,18 +2,27 @@ import React, { useState } from 'react'
 import flowerlogo from '../assets/flowershop.png'
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from "../redux/index"
+import { logoutRedux } from "../redux/userSlice"
+import { toast } from 'react-hot-toast'
+import { FiLogOut } from "react-icons/fi"
 
 const Navbar: React.FC = () => {
     const [showMenu, setShowMenu] = useState(false)
 
     const userData = useSelector((state: RootState) => state.user)
-    console.log(userData)
+
+    const dispatch = useDispatch()
+    const handleLogout = () => {
+        dispatch(logoutRedux(""))
+        toast("Logout successful!")
+    }
 
     const handleShowMenu = () => {
         setShowMenu(prevShowMenu => !prevShowMenu)
     }
+
     return (
         <nav className='flex justify-between py-1 px-8 shadow-lg relative z-50'>
             <div>
@@ -35,9 +44,12 @@ const Navbar: React.FC = () => {
                         {userData.image ? <img src={userData.image} className='w-10 h-10 rounded-full shadow-lg' /> : <FaUserAlt size={22} />}
                     </div>
                     {showMenu &&
-                        <div className='absolute flex flex-col bg-white top-[70px] right-8 p-4 shadow-lg'>
-                            <Link to={"newproduct"} className='whitespace-nowrap cursor-pointer'>New product</Link>
-                            {userData.image ? <p>Logout</p> : <Link to={"login"} className='whitespace-nowrap cursor-pointer'>Login</Link>}
+                        <div className='absolute flex flex-col bg-white top-[70px] w-[200px] right-8 p-4 shadow-lg rounded-md'>
+                            <h1 className='font-bold text-lg'>{`${userData.firstName} ${userData.lastName}`}</h1>
+                            <p>{userData.email}</p>
+                            {userData.email === import.meta.env.VITE_ADMIN_SERVER && <Link to={"newproduct"} className='whitespace-nowrap cursor-pointer'>New product</Link> }
+
+                            {userData.image ? <p className='flex items-center gap-2 cursor-pointer mt-20' onClick={handleLogout}><FiLogOut size={30}/>Log Out</p> : <Link to={"login"} className='whitespace-nowrap cursor-pointer'>Login</Link>}
                         </div>
                     }
                 </div>

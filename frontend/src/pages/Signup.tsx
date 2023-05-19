@@ -16,6 +16,8 @@ const Signup: React.FC = () => {
         image: ""
     });
 
+    const REACT_SERVER = import.meta.env.VITE_REACT_SERVER
+
     const [showPassword, setShowPassword] = useState(false);
     const handleShowPassword = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -56,7 +58,7 @@ const Signup: React.FC = () => {
         const { firstName, lastName, email, password, confirmPassword } = formData;
         if (firstName && lastName && email && password && confirmPassword) {
           if (password === confirmPassword) {
-            fetch("http://localhost:4000/signup", {
+            fetch(`${REACT_SERVER}/signup`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
