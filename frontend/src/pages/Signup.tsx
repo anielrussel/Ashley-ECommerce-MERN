@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import profile from "../assets/profile.png";
 import { RiEyeFill, RiEyeCloseFill } from "react-icons/ri";
+import { BsCameraFill } from "react-icons/bs"
 import { Link, useNavigate } from "react-router-dom";
 import { ImageBase64 } from "../utils/ImageBase64";
 import { toast } from "react-hot-toast";
@@ -97,8 +98,8 @@ const Signup: React.FC = () => {
                             className="w-full rounded-full"
                         />
                         <label htmlFor="profile">
-                            <div className="absolute bg-gray-400/80 bottom-0 h-1/3 w-full text-center cursor-pointer">
-                                <p className="text-white">Upload</p>
+                            <div className="absolute bg-gray-400/90 bottom-0 h-1/3 w-full flex items-center justify-center cursor-pointer">
+                                <BsCameraFill size={25} />
                             </div>
                             <input type="file" id="profile" className="hidden" accept="image/" onChange={handleFile}/>
                         </label>

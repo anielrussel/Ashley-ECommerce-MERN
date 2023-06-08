@@ -4,11 +4,13 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { userSignup, userLogin } from "./controllers/UserController";
-import { productController } from "./controllers/ProductController";
+import { productController, getAllProduct } from "./controllers/ProductController";
 
 dotenv.config();
 
 const app = express();
+
+// env files
 const PORT = process.env.PORT || 4000;
 const MONGO_URI = process.env.MONGO_URI
 
@@ -29,8 +31,11 @@ app.get("/", (req: Request, res: Response) => {
 app.post("/signup", userSignup)
 app.post("/login", userLogin)
 
-// product
+// product api
 app.post("/uploadProduct", productController)
+
+// get product
+app.get("/product", getAllProduct)
 
 // connect to database
 if (!MONGO_URI) {

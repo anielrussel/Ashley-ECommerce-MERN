@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export interface CounterState {
+export interface UserState {
   firstName: string,
   lastName: string,
   email: string,
@@ -8,7 +8,7 @@ export interface CounterState {
   _id: string
 }
 
-const initialState: CounterState = {
+const initialState: UserState = {
     firstName: "",
     lastName: "",
     email: "",
