@@ -26,6 +26,7 @@ const CardFeatures: React.FC<Product> = ({ name, image, price, id, category, des
             description: description
         }))
     }
+    
     return (
         <div className='flex'>
             <div className='hover:shadow-lg bg-white rounded-md hover:scale-105 ease-in-out duration-300'>

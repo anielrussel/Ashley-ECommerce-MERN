@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import flowerlogo from '../assets/flowershop.png'
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
@@ -10,6 +10,7 @@ import { FiLogOut } from "react-icons/fi"
 
 const Navbar: React.FC = () => {
     const [showMenu, setShowMenu] = useState(false)
+    const menuRef = useRef<HTMLDivElement>(null);
 
     const userData = useSelector((state: RootState) => state.user)
 
@@ -20,8 +21,29 @@ const Navbar: React.FC = () => {
     }
 
     const handleShowMenu = () => {
-        setShowMenu(prevShowMenu => !prevShowMenu)
-    }
+        setShowMenu((prevShowMenu) => !prevShowMenu);
+      };
+    
+      const handleOutsideClick = (event: MouseEvent) => {
+        if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+          setShowMenu(false);
+        }
+      };
+    
+      useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+          handleOutsideClick(event);
+        };
+    
+        if (showMenu) {
+          window.addEventListener('mousedown', handleClickOutside);
+        }
+    
+        return () => {
+          window.removeEventListener('mousedown', handleClickOutside);
+        };
+      }, [showMenu]);
+        
 
     const cartNumberItem = useSelector((state: RootState) => state.product.cartItem)
 
@@ -48,8 +70,8 @@ const Navbar: React.FC = () => {
                     <div className='text-gray-800 p-1 border border-gray-700 rounded-full cursor-pointer' onClick={handleShowMenu}>
                         {userData.image ? <img src={userData.image} className='w-10 h-10 rounded-full shadow-lg' /> : <FaUserAlt size={22} color="gray" />}
                     </div>
-                    {showMenu &&
-                        <div className='absolute flex flex-col bg-white top-[70px] w-auto right-8 py-4 px-6 shadow-allShadow rounded-md mt-6'>
+                    {showMenu && (
+                        <div ref={menuRef} className='absolute flex flex-col bg-white top-[70px] w-auto right-8 py-4 px-6 shadow-allShadow rounded-md mt-6'>
                             {userData.firstName && <div className='p-2 shadow-allShadowLite rounded-md pr-20'>
                                 <h1 className='font-bold text-lg'>{`${userData.firstName} ${userData.lastName}`}</h1>
                                 <p>{userData.email}</p>
@@ -58,7 +80,7 @@ const Navbar: React.FC = () => {
 
                             {userData.image ? <p className='flex items-center gap-2 cursor-pointer mt-20' onClick={handleLogout}><FiLogOut size={30} />Log Out</p> : <Link to={"login"} className='whitespace-nowrap cursor-pointer'>Login</Link>}
                         </div>
-                    }
+                    )}
                 </div>
             </nav>
         </div>

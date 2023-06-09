@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { RootState } from "../redux";
 import {
@@ -9,7 +9,7 @@ import {
   AccordionItem,
 } from "react-headless-accordion";
 import { AiOutlineRight, AiOutlineDown } from "react-icons/ai";
-import { Product } from "../redux/productSlice";
+import { Product, addCartItem } from "../redux/productSlice";
 
 // swiper js
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,8 +17,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
+
+
 const Products: React.FC = () => {
   const { filterby } = useParams();
+  const dispatch = useDispatch()
   const productData = useSelector(
     (state: RootState) => state.product.productList
   );
@@ -50,6 +53,9 @@ const Products: React.FC = () => {
     setFilteredProducts(productData);
   }, [productData]);
 
+  const handleAddCartItem = () => {
+    dispatch(addCartItem(productDisplay))
+}
   return (
     <div className="lg:flex lg:px-28 px-10 py-12">
       <div className="lg:w-[50%]">
@@ -113,17 +119,8 @@ const Products: React.FC = () => {
         <p className="font-semibold text-pink-600 text-lg pt-4">
           ₱{productDisplay.price.toLocaleString()}
         </p>
-        <div className="flex items-center gap-6">
-          <h1>Quanity:</h1>
-          <button className="px-3 rounded-md text-pink-600 font-bold">+</button>
-          <p className="text-xl">0</p>
-          <button className="px-3 rounded-md text-pink-600 font-bold text-3xl">
-            -
-          </button>
-        </div>
-        <p>Total:</p>
         <div className="flex gap-6 pt-4">
-          <button className="lg:text-xl text-normal border-2 border-pink-400 hover:bg-pink-200 lg:px-16 px-10 py-2">
+          <button className="lg:text-xl text-normal border-2 border-pink-400 hover:bg-pink-200 lg:px-16 px-10 py-2" onClick={handleAddCartItem}>
             Add to cart
           </button>
           <button className="lg:text-xl text-normal border-2 border-pink-400 bg-pink-400 text-white hover:bg-pink-500 lg:px-16 px-10 py-2">
