@@ -2,17 +2,13 @@ import { useEffect } from "react"
 import Navbar from "./components/Navbar"
 import { Outlet } from "react-router-dom"
 import { Toaster } from 'react-hot-toast';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setProductData } from "./redux/productSlice";
-import { RootState } from "./redux";
 
 
 function App() {
 
   const dispatch = useDispatch()
-  const productData = useSelector((state: RootState) => state.product)
-  console.log(productData)
-
   useEffect(() => {
     (async () => {
       try {
@@ -21,7 +17,6 @@ function App() {
           throw new Error('Network response was not ok');
         }
         const resData = await res.json();
-        console.log(resData);
         dispatch(setProductData(resData))
       } catch (error) {
         console.error(error);

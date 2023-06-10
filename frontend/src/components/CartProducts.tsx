@@ -2,11 +2,14 @@ import React from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { BiMinus } from 'react-icons/bi';
 import { BsTrashFill } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteCartItem, increaseQty, decreaseQty, CartItem } from '../redux/productSlice';
+import { RootState } from '../redux/index';
 
 const CartProducts: React.FC<CartItem> = ({ _id, name, image, category, price, description, qty, total }) => {
   const dispatch = useDispatch();
+  const userId = useSelector((state: RootState) => state.user._id);
+
 
   const handleDelete = () => {
     const product: CartItem = {
@@ -16,6 +19,7 @@ const CartProducts: React.FC<CartItem> = ({ _id, name, image, category, price, d
       image,
       price,
       description,
+      userId: userId,
       qty: 0,
       total: 0,
     };
@@ -31,25 +35,26 @@ const CartProducts: React.FC<CartItem> = ({ _id, name, image, category, price, d
         image,
         price,
         description,
+        userId: userId,
         qty,
         total,
       };
       dispatch(increaseQty(product));
     } else {
-        const product: CartItem = {
-          _id,
-          name,
-          category,
-          image,
-          price,
-          description,
-          qty,
-          total,
-        };
-        dispatch(decreaseQty(product));
+      const product: CartItem = {
+        _id,
+        name,
+        category,
+        image,
+        price,
+        description,
+        userId: userId,
+        qty,
+        total,
+      };
+      dispatch(decreaseQty(product));
     }
   };
-
 
   return (
     <div className='font-jost'>

@@ -17,11 +17,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
-
-
 const Products: React.FC = () => {
   const { filterby } = useParams();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.user._id)
   const productData = useSelector(
     (state: RootState) => state.product.productList
   );
@@ -54,8 +53,12 @@ const Products: React.FC = () => {
   }, [productData]);
 
   const handleAddCartItem = () => {
-    dispatch(addCartItem(productDisplay))
-}
+    const userId = user; // Replace with the actual user ID
+    const productWithUserId = { ...productDisplay, userId };
+    dispatch(addCartItem(productWithUserId));
+  };
+
+
   return (
     <div className="lg:flex lg:px-28 px-10 py-12">
       <div className="lg:w-[50%]">

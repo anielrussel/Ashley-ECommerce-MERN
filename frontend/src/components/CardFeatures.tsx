@@ -1,7 +1,10 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { addCartItem } from '../redux/productSlice'
+import { RootState } from '../redux/index'
+import { toast } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 interface Product {
     name: string,
@@ -15,17 +18,34 @@ interface Product {
 const CardFeatures: React.FC<Product> = ({ name, image, price, id, category, description }) => {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    
+    const userId = useSelector((state: RootState) => state.user._id);
 
-    const handleAddCartItem = () => {
-        dispatch(addCartItem({
-            _id: id,
-            name: name,
-            price: price,
-            image: image,
-            category: category,
-            description: description
-        }))
-    }
+    const isAuthenticated = useSelector(
+        (state: RootState) => state.user.isLoggedIn
+      );
+
+      const handleAddCartItem = () => {
+        if (!isAuthenticated) {
+          // User is not logged in, handle accordingly (e.g., show error message)
+          toast("User is not logged in. Please log in to add items to the cart.");
+          navigate("/login")
+          return;
+        }
+    
+        dispatch(
+          addCartItem({
+              _id: id,
+              name: name,
+              price: price,
+              image: image,
+              category: category,
+              description: description,
+              userId: userId
+          })
+        );
+      };
     
     return (
         <div className='flex'>
@@ -34,7 +54,7 @@ const CardFeatures: React.FC<Product> = ({ name, image, price, id, category, des
                 <div className='p-4'>
                     <h1 className='pb-2'>{name}</h1>
                     <h1 className='text-pink-700 font-bold'>₱{price}</h1>
-                    <button className='bg-pink-300 py-1 px-4 rounded-md text-gray-800 text-sm' onClick={handleAddCartItem}>Add to cart</button>
+                    <button className='bg-pink-500 py-1 px-4 rounded-md text-white text-sm w-full' onClick={handleAddCartItem}>Add to cart</button>
                 </div>
             </div>
         </div>

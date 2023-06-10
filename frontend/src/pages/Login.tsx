@@ -51,7 +51,7 @@ const Login: React.FC = () => {
         .then((data) => {
           toast(data.message);
           if (data.message === "Login Successful!") {
-            dispatch(loginRedux(data))
+            dispatch(loginRedux(data.data));
             navigate("/"); // Navigate to the home page ("/")
           }
         })

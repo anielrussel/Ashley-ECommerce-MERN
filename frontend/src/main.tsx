@@ -9,8 +9,9 @@ import Contact from './pages/Contact.tsx'
 import Login from './pages/Login.tsx'
 import NewProduct from './pages/NewProduct.tsx'
 import Signup from './pages/Signup.tsx'
-import { store } from './redux/index.ts'
+import { store, persistor } from './redux/index.ts'
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react';
 import Menu from './pages/Menu.tsx'
 import Products from './pages/Products.tsx'
 import Cart from './pages/Cart.tsx'
@@ -34,7 +35,9 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
       <RouterProvider router={router} />
+    </PersistGate>
     </Provider>
   </React.StrictMode>,
 )

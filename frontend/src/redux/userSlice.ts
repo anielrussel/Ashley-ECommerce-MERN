@@ -1,45 +1,48 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface UserState {
-  firstName: string,
-  lastName: string,
-  email: string,
-  image: string,
-  _id: string
+  firstName: string;
+  lastName: string;
+  email: string;
+  image: string;
+  _id: string;
+  isLoggedIn: boolean;
 }
 
 const initialState: UserState = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    image: "",
-    _id: ""
-}
+  firstName: '',
+  lastName: '',
+  email: '',
+  image: '',
+  _id: '',
+  isLoggedIn: false,
+};
 
-export const userSlice = createSlice({
+const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    loginRedux: (state, action) => {
-      console.log(action.payload.data)
-      state._id = action.payload.data._id
-      state.firstName = action.payload.data.firstName
-      state.lastName = action.payload.data.lastName
-      state.email = action.payload.data.email
-      state.image = action.payload.data.image
+    loginRedux: (state, action: PayloadAction<UserState>) => {
+      const { firstName, lastName, email, image, _id } = action.payload;
+      console.log(action)
+      state._id = _id;
+      state.firstName = firstName;
+      state.lastName = lastName;
+      state.email = email;
+      state.image = image;
+      state.isLoggedIn = true;
     },
-    logoutRedux: (state, action) => {
-      console.log(action.payload.data)
-      state._id = "";
-      state.firstName = ""; 
-      state.lastName = "";
-      state.email = "";
-      state.image = "";
-    }
+    logoutRedux: (state) => {
+      state._id = '';
+      state.firstName = '';
+      state.lastName = '';
+      state.email = '';
+      state.image = '';
+      state.isLoggedIn = false;
+    },
   },
-})
+});
 
-// Action creators are generated for each case reducer function
-export const { loginRedux, logoutRedux } = userSlice.actions
+export const { loginRedux, logoutRedux } = userSlice.actions;
 
-export default userSlice.reducer
+export default userSlice.reducer;
