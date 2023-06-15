@@ -29,7 +29,7 @@ const CardFeatures: React.FC<Product> = ({ name, image, price, id, category, des
       const handleAddCartItem = () => {
         if (!isAuthenticated) {
           // User is not logged in, handle accordingly (e.g., show error message)
-          toast("User is not logged in. Please log in to add items to the cart.");
+          toast("Please log in to add items to the cart.");
           navigate("/login")
           return;
         }

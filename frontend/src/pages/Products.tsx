@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { RootState } from "../redux";
 import {
   Accordion,
@@ -10,6 +10,7 @@ import {
 } from "react-headless-accordion";
 import { AiOutlineRight, AiOutlineDown } from "react-icons/ai";
 import { Product, addCartItem } from "../redux/productSlice";
+import { shuffle } from "lodash"
 
 // swiper js
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,9 +19,10 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
 const Products: React.FC = () => {
+  const navigate = useNavigate();
   const { filterby } = useParams();
   const dispatch = useDispatch();
-  const user = useSelector((state: RootState) => state.user._id)
+  const user = useSelector((state: RootState) => state.user._id);
   const productData = useSelector(
     (state: RootState) => state.product.productList
   );
@@ -28,14 +30,18 @@ const Products: React.FC = () => {
   const relatedProducts = productData
     .filter((el) => el._id !== filterby)
     .slice(0, 4);
-  console.log(productDisplay);
-
   const [accordion, setAccordion] = useState(false);
   const handleAccordion = () => {
     setAccordion((prev) => !prev);
   };
 
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const shuffledProductData = shuffle(filteredProducts);
+    setFilteredProducts(shuffledProductData);
+  }, []);
+  
   const [active, setActive] = useState<string>("all");
 
   const filteredProductsByCategory = (category: string) => {
@@ -53,11 +59,10 @@ const Products: React.FC = () => {
   }, [productData]);
 
   const handleAddCartItem = () => {
-    const userId = user; // Replace with the actual user ID
+    const userId = user;
     const productWithUserId = { ...productDisplay, userId };
     dispatch(addCartItem(productWithUserId));
   };
-
 
   return (
     <div className="lg:flex lg:px-28 px-10 py-12">
@@ -106,7 +111,14 @@ const Products: React.FC = () => {
                     key={el._id}
                     className="hover:shadow-md rounded-md p-2 hover:scale-105 ease-in-out duration-300"
                   >
-                    <img src={el.image} alt={el.name} className="w-[200px]" />
+                    <Link to={`product/${el._id}`}>
+                      <img
+                        src={el.image}
+                        alt={el.name}
+                        className="w-[200px]"
+                        onClick={() => navigate(`product/${el._id}`)}
+                      />
+                    </Link>
                     <p className="text-gray-800 text-sm">{el.name}</p>
                     <p className="text-pink-600 text-sm">₱{el.price}</p>
                   </div>
@@ -123,7 +135,10 @@ const Products: React.FC = () => {
           ₱{productDisplay.price.toLocaleString()}
         </p>
         <div className="flex gap-6 pt-4">
-          <button className="lg:text-xl text-normal border-2 border-pink-400 hover:bg-pink-200 lg:px-16 px-10 py-2" onClick={handleAddCartItem}>
+          <button
+            className="lg:text-xl text-normal border-2 border-pink-400 hover:bg-pink-200 lg:px-16 px-10 py-2"
+            onClick={handleAddCartItem}
+          >
             Add to cart
           </button>
           <button className="lg:text-xl text-normal border-2 border-pink-400 bg-pink-400 text-white hover:bg-pink-500 lg:px-16 px-10 py-2">
@@ -193,6 +208,7 @@ const Products: React.FC = () => {
                         src={product.image}
                         alt={product.name}
                         className="w-full"
+                        onClick={() => navigate(`product/${product._id}`)}
                       />
                     </Link>
                     <div className="p-1 flex flex-col flex-wrap">
