@@ -200,7 +200,7 @@ const Products: React.FC = () => {
               {filteredProducts.map((product) => (
                 <SwiperSlide key={product._id}>
                   <div
-                    className="bg-white lg:w-[130px] w-[80px] hover:border border-gray-500"
+                    className="bg-white lg:w-[130px] w-[80px] lg:h-auto h-[170px] hover:border border-gray-500"
                     key={product._id}
                   >
                     <Link to={`product/${product._id}`}>

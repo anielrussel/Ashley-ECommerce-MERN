@@ -49,11 +49,11 @@ const CardFeatures: React.FC<Product> = ({ name, image, price, id, category, des
     
     return (
         <div className='flex'>
-            <div className='hover:shadow-lg bg-white rounded-md hover:scale-105 ease-in-out duration-300'>
-                <Link to={`product/${id}`}><img src={image} alt={name} className='lg:w-[250px] lg:h-[200px]' /></Link>
+            <div className='hover:shadow-lg w-[220px] lg:w-auto bg-white rounded-md hover:scale-105 ease-in-out duration-300'>
+                <Link to={`product/${id}`}><img src={image} alt={name} className='lg:w-[250px] w-[220px] lg:h-[200px] h-[180px]' /></Link>
                 <div className='p-4'>
-                    <h1 className='pb-2'>{name}</h1>
-                    <h1 className='text-pink-700 font-bold'>₱{price}</h1>
+                    <h1 className='pb-2 text-sm'>{name}</h1>
+                    <h1 className='text-pink-700 font-semibold text-sm'>₱{price}</h1>
                     <button className='bg-pink-500 py-1 px-4 rounded-md text-white text-sm w-full' onClick={handleAddCartItem}>Add to cart</button>
                 </div>
             </div>

@@ -10,18 +10,17 @@ const Cart: React.FC = () => {
   const currentUserID = useSelector((state: RootState) => state.user._id);
   console.log(currentUserID)
 
-  const totalQuantity = productCartItem.reduce((acc, curr) => acc + curr.qty, 0);
-  const totalPrice = productCartItem.reduce((acc, curr) => acc + curr.total, 0);
-
   // Filter cart items based on the logged-in user
   const userCartItems = productCartItem.filter((item) => item.userId === currentUserID);
+  const totalQuantity = userCartItems.reduce((acc, curr) => acc + curr.qty, 0);
+  const totalPrice = userCartItems.reduce((acc, curr) => acc + curr.total, 0);
 
   return (
-    <div className="lg:px-28 pt-10">
+    <div className="lg:px-28 px-2 py-10">
       {isAuthenticated ? (
         <>
           {userCartItems.length > 0 ? (
-            <div className="lg:flex justify-between">
+            <div className="lg:flex lg:justify-between">
               {/* Cart Items */}
               <div className="pt-8 max-w-2xl w-full">
                 <h1 className="font-jost text-xl font-bold text-gray-700 pb-4">Your Cart Items</h1>
@@ -43,7 +42,7 @@ const Cart: React.FC = () => {
                 </div>
               </div>
               {/* Summary */}
-              <div className="pt-8 max-w-md w-full font-jost">
+              <div className="pt-8 lg:max-w-md w-full font-jost">
                 <h1 className="font-jost text-xl font-bold text-gray-700 pb-4">Summary</h1>
                 <div className="bg-white p-4 rounded-md shadow-lg">
                   <p className="flex justify-between text-lg font-semibold text-gray-700">

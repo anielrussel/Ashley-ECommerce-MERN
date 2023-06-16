@@ -73,13 +73,13 @@ const Home: React.FC = () => {
       {/* best sellers */}
       <div className="mt-16">
         <div className="py-6 bg-pink-600"></div>
-        <div className="px-28 pt-8">
+        <div className="lg:px-28 px-2 pt-8">
           <div className="flex justify-between border-b-2 border-gray-400">
-            <h1 className="font-semibold text-2xl">Best Seller</h1>
-            <Link to={"menu"}><p className="cursor-pointer">Shop more</p></Link>
+            <h1 className="font-semibold text-2xl text-gray-700">Best Seller</h1>
+            <Link to={"menu"}><p className="cursor-pointer text-pink-500">Shop more</p></Link>
           </div>
         </div>
-        <div className="flex flex-wrap px-28 gap-4 my-4 justify-center">
+        <div className="flex flex-wrap lg:px-28 px-2 gap-4 my-4 justify-between lg:justify-center">
           {bestSellers[0] &&
             bestSellers.map((el) => {
               return (
@@ -98,13 +98,13 @@ const Home: React.FC = () => {
       </div>
 
       {/* real flowers */}
-      <div className="px-28 pt-8 mt-8">
+      <div className="lg:px-28 px-2 pt-8 mt-8">
         <div className="flex justify-between border-b-2 border-gray-400">
-          <h1 className="font-semibold text-2xl">Real Flowers</h1>
-          <Link to={"menu"}><p className="cursor-pointer">Shop more</p></Link>
+          <h1 className="font-semibold text-2xl text-gray-700">Real Flowers</h1>
+          <Link to={"menu"}><p className="cursor-pointer text-pink-500">Shop more</p></Link>
         </div>
       </div>
-      <div className="flex flex-wrap px-28 gap-4 my-4 justify-center">
+      <div className="flex flex-wrap lg:px-28 px-2 gap-4 my-4 justify-center">
         {realFlowers[0] &&
           realFlowers.map((el) => {
             return (
@@ -122,13 +122,13 @@ const Home: React.FC = () => {
       </div>
 
       {/* artificial flowers */}
-      <div className="px-28 pt-8 mt-8">
+      <div className="lg:px-28 px-2 pt-8 mt-8">
         <div className="flex justify-between border-b-2 border-gray-400">
-          <h1 className="font-semibold text-2xl">Artificial Flowers</h1>
-          <Link to={"menu"}><p className="cursor-pointer">Shop more</p></Link>
+          <h1 className="font-semibold text-2xl text-gray-700">Artificial Flowers</h1>
+          <Link to={"menu"}><p className="cursor-pointer text-pink-500">Shop more</p></Link>
         </div>
       </div>
-      <div className="flex flex-wrap px-28 gap-4 my-4 justify-center">
+      <div className="flex flex-wrap lg:px-28 px-2 gap-4 my-4 justify-center">
         {artificialFlowers[0] &&
           artificialFlowers.map((el) => {
             return (
@@ -146,13 +146,13 @@ const Home: React.FC = () => {
       </div>
 
       {/* preserved flowers */}
-      <div className="px-28 pt-8 mt-8">
+      <div className="lg:px-28 px-2 pt-8 mt-8">
         <div className="flex justify-between border-b-2 border-gray-400">
-          <h1 className="font-semibold text-2xl">Preserved Flowers</h1>
-          <Link to={"menu"}><p className="cursor-pointer">Shop more</p></Link>
+          <h1 className="font-semibold text-2xl text-gray-700">Preserved Flowers</h1>
+          <Link to={"menu"}><p className="cursor-pointer text-pink-500">Shop more</p></Link>
         </div>
       </div>
-      <div className="flex flex-wrap px-28 gap-4 my-4 justify-center">
+      <div className="flex flex-wrap lg:px-28 px-2 gap-4 my-4 justify-center">
         {preservedFlowers[0] &&
           preservedFlowers.map((el) => {
             return (
@@ -169,7 +169,7 @@ const Home: React.FC = () => {
           })}
       </div>
 
-      <div className="lg:px-28 mt-16">
+      <div className="lg:lg:px-28 px-2 mt-16">
         <h1 className="text-2xl font-bold">All Products</h1>
         <div className="flex justify-center gap-2">
           <button
