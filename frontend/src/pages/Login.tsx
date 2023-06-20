@@ -49,21 +49,24 @@ const Login: React.FC = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          toast(data.message);
           if (data.message === "Login Successful!") {
             dispatch(loginRedux(data.data));
+            toast.success("Login Successful!");
             navigate("/"); // Navigate to the home page ("/")
+          } else {
+            toast.error(data.message);
           }
         })
         .catch((error) => {
           console.log("Error logging in:", error);
-          toast("Login failed!");
+          toast.error("Login failed!");
         });
     } else {
-      toast("Incorrect password");
+      toast.error("Incorrect password");
       return;
     }
   };
+  
 
   return (
     <div className="flex justify-center px-4">

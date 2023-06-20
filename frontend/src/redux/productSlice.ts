@@ -53,7 +53,7 @@ export const productSlice = createSlice({
 
       if (duplicateProduct) {
         // Show a toast message if the product is already in the cart
-        toast("Product is already in the cart");
+        toast.error("Product is already in the cart");
       } else {
         // Calculate the total price and create a new item with the additional properties
         const total = product.price;
@@ -63,13 +63,13 @@ export const productSlice = createSlice({
         state.cartItem = [...state.cartItem, newItem];
 
         // Show a toast message for successful addition to the cart
-        toast("Added to cart");
+        toast.success("Added to cart");
       }
     },
     // deleteCartItem reducer to delete an item from the cart
     deleteCartItem: (state, action: PayloadAction<CartItem>) => {
       // Show a toast message for item deletion
-      toast("One Item Deleted");
+      toast.success("One Item Deleted");
 
       // Find the index of the item in the cart
       const index = state.cartItem.findIndex(

@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
       {/* desktop view */}
       <nav className="flex justify-between py-1 lg:px-8 px-2 shadow">
         {/* mobile view */}
-        <div className="lg:hidden ">
+        <div className="lg:hidden">
           <div
             className="cursor-pointer z-30 fixed"
             onClick={handleNav}

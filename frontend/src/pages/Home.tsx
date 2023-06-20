@@ -53,7 +53,7 @@ const Home: React.FC = () => {
               Make Someone Smile Today!
             </h1>
             <Link to={"menu"}>
-              <button className="bg-pink-800 py-2 px-5 hover:px-8 ease-in-out duration-500 hover:bg-pink-900 mt-4 text-xl text-white rounded-lg">
+              <button className="bg-pink-800 py-2 px-5 hover:px-8 ease-in-out duration-500 hover:bg-pink-900 mt-4 lg:text-xl text-md text-white rounded-lg">
                 Shop Now
               </button>
             </Link>
@@ -75,25 +75,28 @@ const Home: React.FC = () => {
         <div className="py-6 bg-pink-600"></div>
         <div className="lg:px-28 px-2 pt-8">
           <div className="flex justify-between border-b-2 border-gray-400">
-            <h1 className="font-semibold text-2xl text-gray-700">Best Seller</h1>
-            <Link to={"menu"}><p className="cursor-pointer text-pink-500">Shop more</p></Link>
+            <h1 className="font-semibold text-2xl text-gray-700">
+              Best Seller
+            </h1>
+            <Link to={"menu"}>
+              <p className="cursor-pointer text-pink-500">Shop more</p>
+            </Link>
           </div>
         </div>
         <div className="flex flex-wrap lg:px-28 px-2 gap-4 my-4 justify-between lg:justify-center">
-          {bestSellers[0] &&
-            bestSellers.map((el) => {
-              return (
-                <CardFeatures
-                  key={el._id}
-                  id={el._id}
-                  image={el.image}
-                  name={el.name}
-                  price={el.price}
-                  category={el.category}
-                  description={el.description}
-                />
-              );
-            })}
+          {bestSellers.map((el) => {
+            return (
+              <CardFeatures
+                key={el._id}
+                id={el._id}
+                image={el.image}
+                name={el.name}
+                price={el.price}
+                category={el.category}
+                description={el.description}
+              />
+            );
+          })}
         </div>
       </div>
 
@@ -101,7 +104,9 @@ const Home: React.FC = () => {
       <div className="lg:px-28 px-2 pt-8 mt-8">
         <div className="flex justify-between border-b-2 border-gray-400">
           <h1 className="font-semibold text-2xl text-gray-700">Real Flowers</h1>
-          <Link to={"menu"}><p className="cursor-pointer text-pink-500">Shop more</p></Link>
+          <Link to={"menu"}>
+            <p className="cursor-pointer text-pink-500">Shop more</p>
+          </Link>
         </div>
       </div>
       <div className="flex flex-wrap lg:px-28 px-2 gap-4 my-4 justify-center">
@@ -124,8 +129,12 @@ const Home: React.FC = () => {
       {/* artificial flowers */}
       <div className="lg:px-28 px-2 pt-8 mt-8">
         <div className="flex justify-between border-b-2 border-gray-400">
-          <h1 className="font-semibold text-2xl text-gray-700">Artificial Flowers</h1>
-          <Link to={"menu"}><p className="cursor-pointer text-pink-500">Shop more</p></Link>
+          <h1 className="font-semibold text-2xl text-gray-700">
+            Artificial Flowers
+          </h1>
+          <Link to={"menu"}>
+            <p className="cursor-pointer text-pink-500">Shop more</p>
+          </Link>
         </div>
       </div>
       <div className="flex flex-wrap lg:px-28 px-2 gap-4 my-4 justify-center">
@@ -148,8 +157,12 @@ const Home: React.FC = () => {
       {/* preserved flowers */}
       <div className="lg:px-28 px-2 pt-8 mt-8">
         <div className="flex justify-between border-b-2 border-gray-400">
-          <h1 className="font-semibold text-2xl text-gray-700">Preserved Flowers</h1>
-          <Link to={"menu"}><p className="cursor-pointer text-pink-500">Shop more</p></Link>
+          <h1 className="font-semibold text-2xl text-gray-700">
+            Preserved Flowers
+          </h1>
+          <Link to={"menu"}>
+            <p className="cursor-pointer text-pink-500">Shop more</p>
+          </Link>
         </div>
       </div>
       <div className="flex flex-wrap lg:px-28 px-2 gap-4 my-4 justify-center">

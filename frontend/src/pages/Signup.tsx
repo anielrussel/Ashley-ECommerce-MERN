@@ -68,18 +68,19 @@ const Signup: React.FC = () => {
             })
               .then((response) => response.json())
               .then((data) => {
-                console.log(data);
-                toast(data.message);
                 if (data.message === "Successfully signed up!") {
+                    toast.success("Successfully signed up!")
                     navigate("/login")
+                } else {
+                    toast.error(data.message)
                 }
               })
               .catch((error) => {
                 console.log("Error signing up:", error);
-                toast("Signup failed!");
+                toast.error("Signup failed!");
               });
           } else {
-            toast("Password and Confirm Password do not match");
+            toast.error("Passwords do not match");
             return;
           }
         }

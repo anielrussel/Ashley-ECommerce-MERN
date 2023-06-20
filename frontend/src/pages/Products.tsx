@@ -10,7 +10,7 @@ import {
 } from "react-headless-accordion";
 import { AiOutlineRight, AiOutlineDown } from "react-icons/ai";
 import { Product, addCartItem } from "../redux/productSlice";
-import { shuffle } from "lodash"
+import { shuffle } from "lodash";
 
 // swiper js
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -41,7 +41,7 @@ const Products: React.FC = () => {
     const shuffledProductData = shuffle(filteredProducts);
     setFilteredProducts(shuffledProductData);
   }, []);
-  
+
   const [active, setActive] = useState<string>("all");
 
   const filteredProductsByCategory = (category: string) => {
@@ -111,7 +111,7 @@ const Products: React.FC = () => {
                     key={el._id}
                     className="hover:shadow-md rounded-md p-2 hover:scale-105 ease-in-out duration-300"
                   >
-                    <Link to={`product/${el._id}`}>
+                    <Link to={`product/${el._id}`} replace>
                       <img
                         src={el.image}
                         alt={el.name}
@@ -203,7 +203,7 @@ const Products: React.FC = () => {
                     className="bg-white lg:w-[130px] w-[80px] lg:h-auto h-[170px] hover:border border-gray-500"
                     key={product._id}
                   >
-                    <Link to={`product/${product._id}`}>
+                    <Link to={`product/${product._id}`} replace>
                       <img
                         src={product.image}
                         alt={product.name}

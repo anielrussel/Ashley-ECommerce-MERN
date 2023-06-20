@@ -46,7 +46,7 @@ export const userLogin = async (req: Request, res: Response) => {
       }
     } else {
       res.send({
-        message: "Email is not valid, please sign up!",
+        message: "Email is not valid!",
         alert: false,
       });
     }
