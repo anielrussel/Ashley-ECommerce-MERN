@@ -17,12 +17,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
+import { toast } from "react-hot-toast";
+
 
 const Products: React.FC = () => {
+
   const navigate = useNavigate();
   const { filterby } = useParams();
   const dispatch = useDispatch();
-  const user = useSelector((state: RootState) => state.user._id);
   const productData = useSelector(
     (state: RootState) => state.product.productList
   );
@@ -58,10 +60,29 @@ const Products: React.FC = () => {
     setFilteredProducts(productData);
   }, [productData]);
 
+  // add to cart
+  const userId = useSelector((state: RootState) => state.user._id);
+  const isAuthenticated = useSelector((state: RootState) => state.user.isLoggedIn)
+
   const handleAddCartItem = () => {
-    const userId = user;
-    const productWithUserId = { ...productDisplay, userId };
-    dispatch(addCartItem(productWithUserId));
+    if (!isAuthenticated) {
+      // User is not logged in, handle accordingly (e.g., show error message)
+      toast.error("Please log in to add items to the cart.");
+      navigate("/login");
+      return;
+    }
+
+    dispatch(
+      addCartItem({
+        _id: productDisplay._id,
+        name: productDisplay.name,
+        price: productDisplay.price,
+        image: productDisplay.image,
+        category: productDisplay.category,
+        description: productDisplay.description,
+        userId: userId,
+      })
+    );
   };
 
   return (

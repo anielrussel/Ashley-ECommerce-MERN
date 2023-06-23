@@ -8,7 +8,6 @@ const Cart: React.FC = () => {
   const productCartItem = useSelector((state: RootState) => state.product.cartItem);
   const isAuthenticated = useSelector((state: RootState) => state.user.isLoggedIn);
   const currentUserID = useSelector((state: RootState) => state.user._id);
-  console.log(currentUserID)
 
   // Filter cart items based on the logged-in user
   const userCartItems = productCartItem.filter((item) => item.userId === currentUserID);
