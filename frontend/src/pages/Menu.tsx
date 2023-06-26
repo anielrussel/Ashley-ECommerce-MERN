@@ -41,7 +41,7 @@ const Menu: React.FC = () => {
         {flashSale[0] &&
           flashSale.map((el) => (
             <div key={el._id} className="hidden lg:block bg-white">
-              <Link to={`product/${el._id}`}>
+              <Link to={`product/${el._id}`} replace>
                 <img
                   src={el.image}
                   alt={el.name}
@@ -59,16 +59,17 @@ const Menu: React.FC = () => {
 
       {/* text */}
       <div className="mt-10 font-jost">
-        <h1 className="lg:text-3xl text-xl text-pink-600 font-bold">Flowers for you</h1>
+        <h1 className="lg:text-3xl text-xl text-pink-600 font-bold">
+          Flowers for you
+        </h1>
         <p className="lg:text-lg text-md text-gray-700">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
-          distinctio est expedita aperiam earum quos enim, cumque aut, eligendi
-          quas possimus, officia error repellendus fugit! Exercitationem
-          adipisci asperiores quod possimus, iusto dolore harum vel id illum
-          quia. Obcaecati labore quod esse quas non sunt quae doloribus vel
-          suscipit, unde cumque sit repellat natus soluta dignissimos dolores
-          expedita. Ad provident minima nemo temporibus amet ex quae id odit
-          repellendus delectus.
+          Welcome to our enchanting flower emporium, where beauty blossoms with
+          every petal. Explore our exquisite collection of handpicked blooms,
+          carefully cultivated to ignite joy and evoke emotions. From vibrant
+          bouquets to delicate arrangements, our flowers exude elegance and
+          grace, perfect for any occasion. Immerse yourself in the fragrant
+          world of nature's wonders and let our flowers weave their magic into
+          your heart.
         </p>
       </div>
 
