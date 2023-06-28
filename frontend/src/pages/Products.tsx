@@ -18,6 +18,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import { toast } from "react-hot-toast";
+import Footer from "../components/Footer";
 
 
 const Products: React.FC = () => {
@@ -86,14 +87,13 @@ const Products: React.FC = () => {
   };
 
   return (
-    <div className="lg:flex lg:px-28 px-10 py-12">
+    <><div className="lg:flex lg:px-28 px-10 py-12">
       <div className="lg:w-[50%]">
         <div className="lg:flex lg:items-center justify-center">
           <img
             src={productDisplay.image}
             alt={productDisplay.name}
-            className="w-[450px]"
-          />
+            className="w-[450px]" />
         </div>
         <div className="mt-4 lg:mt-10 pr-10">
           <Accordion>
@@ -137,8 +137,7 @@ const Products: React.FC = () => {
                         src={el.image}
                         alt={el.name}
                         className="w-[200px]"
-                        onClick={() => navigate(`product/${el._id}`)}
-                      />
+                        onClick={() => navigate(`product/${el._id}`)} />
                     </Link>
                     <p className="text-gray-800 text-sm">{el.name}</p>
                     <p className="text-pink-600 text-sm">₱{el.price}</p>
@@ -170,41 +169,33 @@ const Products: React.FC = () => {
           <p>More products:</p>
           <div className="flex gap-4 mt-2">
             <button
-              className={`${
-                active === "all"
+              className={`${active === "all"
                   ? "bg-pink-500 text-white border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"
-                  : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"
-              }`}
+                  : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"}`}
               onClick={() => filteredProductsByCategory("all")}
             >
               All
             </button>
             <button
-              className={`${
-                active === "real"
+              className={`${active === "real"
                   ? "bg-pink-500 text-white border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"
-                  : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"
-              }`}
+                  : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"}`}
               onClick={() => filteredProductsByCategory("real")}
             >
               Real
             </button>
             <button
-              className={`${
-                active === "preserved"
+              className={`${active === "preserved"
                   ? "bg-pink-500 text-white border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"
-                  : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"
-              }`}
+                  : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"}`}
               onClick={() => filteredProductsByCategory("preserved")}
             >
               Preserved
             </button>
             <button
-              className={`${
-                active === "artificial"
+              className={`${active === "artificial"
                   ? "bg-pink-500 text-white border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"
-                  : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"
-              }`}
+                  : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-xs"}`}
               onClick={() => filteredProductsByCategory("artificial")}
             >
               Artificial
@@ -229,8 +220,7 @@ const Products: React.FC = () => {
                         src={product.image}
                         alt={product.name}
                         className="w-full"
-                        onClick={() => navigate(`product/${product._id}`)}
-                      />
+                        onClick={() => navigate(`product/${product._id}`)} />
                     </Link>
                     <div className="p-1 flex flex-col flex-wrap">
                       <p className="pb-2 text-xs">{product.name}</p>
@@ -245,7 +235,7 @@ const Products: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div><Footer /></>
   );
 };
 

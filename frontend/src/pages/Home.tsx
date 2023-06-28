@@ -6,6 +6,7 @@ import HomeCard from "../components/HomeCard";
 import CardFeatures from "../components/CardFeatures";
 import { Product } from "../redux/productSlice";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const Home: React.FC = () => {
   const productData = useSelector(
@@ -38,13 +39,12 @@ const Home: React.FC = () => {
   }, [productData]);
 
   return (
-    <div className="font-jost pb-32">
+    <><div className="font-jost pb-32">
       <div className="h-[500px] relative z-10">
         <img
           src={homebg}
           alt="homebg"
-          className="h-[550px] lg:h-[550px] w-full"
-        />
+          className="h-[550px] lg:h-[550px] w-full" />
       </div>
       <div className="absolute top-0 left-0 z-20 bg-white/40 lg:h-[550px] h-[550px] w-full">
         <div className="flex lg:flex-row flex-col-reverse lg:justify-around mt-8 gap-12 items-center lg:h-full">
@@ -93,8 +93,7 @@ const Home: React.FC = () => {
                 name={el.name}
                 price={el.price}
                 category={el.category}
-                description={el.description}
-              />
+                description={el.description} />
             );
           })}
         </div>
@@ -120,8 +119,7 @@ const Home: React.FC = () => {
                 name={el.name}
                 price={el.price}
                 category={el.category}
-                description={el.description}
-              />
+                description={el.description} />
             );
           })}
       </div>
@@ -148,8 +146,7 @@ const Home: React.FC = () => {
                 name={el.name}
                 price={el.price}
                 category={el.category}
-                description={el.description}
-              />
+                description={el.description} />
             );
           })}
       </div>
@@ -176,8 +173,7 @@ const Home: React.FC = () => {
                 name={el.name}
                 price={el.price}
                 category={el.category}
-                description={el.description}
-              />
+                description={el.description} />
             );
           })}
       </div>
@@ -186,41 +182,33 @@ const Home: React.FC = () => {
         <h1 className="text-2xl font-bold">All Products</h1>
         <div className="flex justify-center gap-2">
           <button
-            className={`${
-              active === "all"
+            className={`${active === "all"
                 ? "bg-pink-500 text-white border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"
-                : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"
-            }`}
+                : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"}`}
             onClick={() => filteredProductsByCategory("all")}
           >
             All
           </button>
           <button
-            className={`${
-              active === "real"
+            className={`${active === "real"
                 ? "bg-pink-500 text-white border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"
-                : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"
-            }`}
+                : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"}`}
             onClick={() => filteredProductsByCategory("real")}
           >
             Real
           </button>
           <button
-            className={`${
-              active === "preserved"
+            className={`${active === "preserved"
                 ? "bg-pink-500 text-white border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"
-                : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"
-            }`}
+                : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"}`}
             onClick={() => filteredProductsByCategory("preserved")}
           >
             Preserved
           </button>
           <button
-            className={`${
-              active === "artificial"
+            className={`${active === "artificial"
                 ? "bg-pink-500 text-white border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"
-                : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"
-            }`}
+                : "bg-gray-100 text-black border-2 border-gray-600 py-1 px-3 lg:py-1 lg:px-6 rounded-md text-md"}`}
             onClick={() => filteredProductsByCategory("artificial")}
           >
             Artificial
@@ -237,8 +225,7 @@ const Home: React.FC = () => {
                   key={product._id}
                   src={product.image}
                   alt={product.name}
-                  className="w-[180px]"
-                />
+                  className="w-[180px]" />
               </Link>
               <div className="p-1">
                 <p className="pb-2 text-xs">{product.name}</p>
@@ -250,7 +237,7 @@ const Home: React.FC = () => {
           ))}
         </div>
       </div>
-    </div>
+    </div><Footer /></>
   );
 };
 

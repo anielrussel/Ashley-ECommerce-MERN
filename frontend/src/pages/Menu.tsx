@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux";
 import { Link, useNavigate } from "react-router-dom";
 import CardFeatures from "../components/CardFeatures";
+import Footer from "../components/Footer";
 
 const Menu: React.FC = () => {
   const productData = useSelector(
@@ -30,7 +31,7 @@ const Menu: React.FC = () => {
       : productData.filter((product) => product.category === filterFlower);
 
   return (
-    <div className="lg:px-28 px-2 pt-10">
+    <><div className="lg:px-28 px-2 py-10">
       {/* header */}
       <div className="lg:flex lg:h-[280px] h-auto justify-between">
         <img src={menuImage1} alt="image1" className="w-full lg:w-[53%]" />
@@ -46,8 +47,7 @@ const Menu: React.FC = () => {
                   src={el.image}
                   alt={el.name}
                   className="lg:w-[250px] lg:h-[200px]"
-                  onClick={() => navigate(`product/${el._id}`)}
-                />
+                  onClick={() => navigate(`product/${el._id}`)} />
               </Link>
               <div className="p-4">
                 <h1 className="pb-2">{el.name}</h1>
@@ -96,12 +96,11 @@ const Menu: React.FC = () => {
               name={el.name}
               price={el.price}
               category={el.category}
-              description={el.description}
-            />
+              description={el.description} />
           ))}
         </div>
       </div>
-    </div>
+    </div><Footer /></>
   );
 };
 
