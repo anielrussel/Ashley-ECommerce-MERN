@@ -1,5 +1,8 @@
 import React from "react";
 import Footer from "../components/Footer";
+import rocket from "../assets/rocket.svg";
+import bulb from "../assets/bulb.svg";
+import rotate from "../assets/360.svg";
 
 const About: React.FC = () => {
   return (
@@ -30,7 +33,10 @@ const About: React.FC = () => {
 
         <div className="lg:flex lg:flex-row justify-between lg:gap-6 flex flex-col gap-10 mt-32">
           <div>
-            <h1 className="lg:text-4xl text-2xl font-bold text-[#2BB79D] border-l-8 border-[#2BB79D] px-2">Lorem Ipsum is simply</h1>
+            <img src={rocket} alt="rocket" className="lg:w-[50px] w-[30px] lg:mb-8" />
+            <h1 className="lg:text-4xl text-2xl font-bold text-[#2BB79D] border-l-8 border-[#2BB79D] px-2">
+              Lorem Ipsum is simply
+            </h1>
             <p className="text-[#9F9E9E] font-bold lg:text-lg text-md mt-10 border-l-2 border-black px-4 py-2">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -39,7 +45,10 @@ const About: React.FC = () => {
           </div>
 
           <div>
-            <h1 className="lg:text-4xl text-2xl font-bold text-[#0132E0] border-l-8 border-[#0132E0] px-2">Lorem Ipsum is simply</h1>
+            <img src={bulb} alt="rocket" className="lg:w-[50px] w-[30px] lg:mb-4" />
+            <h1 className="lg:text-4xl text-2xl font-bold text-[#0132E0] border-l-8 border-[#0132E0] px-2">
+              Lorem Ipsum is simply
+            </h1>
             <p className="text-[#9F9E9E] font-bold lg:text-lg text-md mt-10 border-l-2 border-black px-4 py-2">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -48,7 +57,10 @@ const About: React.FC = () => {
           </div>
 
           <div>
-            <h1 className="lg:text-4xl text-2xl font-bold text-[#F00] border-l-8 border-[#F00] px-2">Lorem Ipsum is simply</h1>
+            <img src={rotate} alt="rocket" className="lg:w-[50px] w-[30px] lg:mb-12" />
+            <h1 className="lg:text-4xl text-2xl font-bold text-[#F00] border-l-8 border-[#F00] px-2">
+              Lorem Ipsum is simply
+            </h1>
             <p className="text-[#9F9E9E] font-bold lg:text-lg text-md mt-10 border-l-2 border-black px-4 py-2">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text

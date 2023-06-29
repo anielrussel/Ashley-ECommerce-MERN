@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 
 const Contact: React.FC = () => {
   return (
-    <><div className="font-jost lg:px-28 px-2 py-10">
+    <><div className="font-jost lg:px-28 px-2 pt-10 pb-40">
       <div className="text-center">
         <h1 className="lg:text-3xl text-2xl text-pink-600 font-bold">
           Contact us

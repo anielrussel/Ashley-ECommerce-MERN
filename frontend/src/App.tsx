@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom"
 import { Toaster } from 'react-hot-toast';
 import { useDispatch } from "react-redux";
 import { setProductData } from "./redux/productSlice";
+import ScrollToTop from "./utils/ScrollToTop";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
     <>
       <Toaster />
       <div>
+        <ScrollToTop />
         <div className="relative z-20">
           <Navbar />
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutRedux } from "../redux/userSlice";
 import { toast } from "react-hot-toast";
@@ -85,16 +85,16 @@ const Navbar: React.FC = () => {
             <div className="left-0 top-0 z-10 pl-2 w-[150px] h-screen fixed bg-white flex gap-10">
               <ul className="flex flex-col gap-5 lg:gap-8 text-xl font-bold text-gray-600 mt-36">
                 <li>
-                  <Link to={"/"}>Home</Link>
+                  <NavLink to={"/"} className={({ isActive}) => isActive ? 'text-pink-500' : "text-gray-600"}>Home</NavLink>
                 </li>
                 <li>
-                  <Link to={"/menu"}>Flowers</Link>
+                  <NavLink to={"/menu"} className={({ isActive}) => isActive ? 'text-pink-500' : "text-gray-600"}>Flowers</NavLink>
                 </li>
                 <li>
-                  <Link to={"/about"}>About</Link>
+                  <NavLink to={"/about"} className={({ isActive}) => isActive ? 'text-pink-500' : "text-gray-600"}>About</NavLink>
                 </li>
                 <li>
-                  <Link to={"/contact"}>Contact</Link>
+                  <NavLink to={"/contact"} className={({ isActive}) => isActive ? 'text-pink-500' : "text-gray-600"}>Contact</NavLink>
                 </li>
               </ul>
             </div>
@@ -114,16 +114,16 @@ const Navbar: React.FC = () => {
         <div className="hidden lg:flex items-center gap-10">
           <ul className="flex gap-3 lg:gap-8">
             <li>
-              <Link to={"/"}>Home</Link>
+              <NavLink to={"/"} className={({ isActive}) => isActive ? 'text-pink-500 font-bold' : "text-gray-600"}>Home</NavLink>
             </li>
             <li>
-              <Link to={"/menu"}>Flowers</Link>
+              <NavLink to={"/menu"} className={({ isActive}) => isActive ? 'text-pink-500 font-bold' : "text-gray-600"}>Flowers</NavLink>
             </li>
             <li>
-              <Link to={"/about"}>About</Link>
+              <NavLink to={"/about"} className={({ isActive}) => isActive ? 'text-pink-500 font-bold' : "text-gray-600"}>About</NavLink>
             </li>
             <li>
-              <Link to={"/contact"}>Contact</Link>
+              <NavLink to={"/contact"} className={({ isActive}) => isActive ? 'text-pink-500 font-bold' : "text-gray-600"}>Contact</NavLink>
             </li>
           </ul>
         </div>

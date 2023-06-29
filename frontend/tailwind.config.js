@@ -11,7 +11,7 @@ export default {
       fontFamily: {
         'script': 'var(--font-family1)',
         'jost': 'var(--font-family2)'
-      }
+      },
     },
   },
   plugins: [],
