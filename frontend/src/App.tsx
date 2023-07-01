@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_REACT_SERVER}/product`);
+        const res = await fetch(`${import.meta.env.VITE_REACT_SERVER}product`);
         if (!res.ok) {
           throw new Error('Network response was not ok');
         }
