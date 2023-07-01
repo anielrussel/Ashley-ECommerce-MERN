@@ -24,7 +24,7 @@ app.use((req: Request, res: Response, next: () => void) => {
 })
 
 // routes
-app.get("/", (req: Request, res: Response) => {
+app.get("", (req: Request, res: Response) => {
   res.send("server is running");
 });
 
