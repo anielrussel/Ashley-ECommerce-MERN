@@ -40,7 +40,7 @@ const Login: React.FC = () => {
   
     const { email, password } = formData;
     if (email && password) {
-      fetch(`${REACT_SERVER}/login`, {
+      fetch(`${REACT_SERVER}login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
