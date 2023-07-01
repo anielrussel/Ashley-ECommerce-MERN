@@ -3,11 +3,11 @@ import loginlogo from "../assets/loginlogo.png";
 import { RiEyeFill, RiEyeCloseFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 import { loginRedux } from "../redux/userSlice";
 
 const Login: React.FC = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -16,9 +16,7 @@ const Login: React.FC = () => {
     confirmPassword: "",
   });
 
-  const REACT_SERVER = import.meta.env.VITE_REACT_SERVER
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
@@ -37,10 +35,10 @@ const Login: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-  
+
     const { email, password } = formData;
     if (email && password) {
-      fetch(`${REACT_SERVER}/login`, {
+      fetch("https://ashley-e-commerce.onrender.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +64,6 @@ const Login: React.FC = () => {
       return;
     }
   };
-  
 
   return (
     <div className="flex justify-center px-4">
