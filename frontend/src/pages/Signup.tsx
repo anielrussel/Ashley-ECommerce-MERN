@@ -59,7 +59,7 @@ const Signup: React.FC = () => {
         const { firstName, lastName, email, password, confirmPassword } = formData;
         if (firstName && lastName && email && password && confirmPassword) {
           if (password === confirmPassword) {
-            fetch(`${REACT_SERVER}signup`, {
+            fetch(`${REACT_SERVER}/signup`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
