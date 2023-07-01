@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/index";
 import CartProducts from "../components/CartProducts";
 import emptyCart from "../assets/emptycart.gif";
+import { toast } from "react-hot-toast";
 
 const Cart: React.FC = () => {
   const productCartItem = useSelector((state: RootState) => state.product.cartItem);
@@ -13,6 +14,12 @@ const Cart: React.FC = () => {
   const userCartItems = productCartItem.filter((item) => item.userId === currentUserID);
   const totalQuantity = userCartItems.reduce((acc, curr) => acc + curr.qty, 0);
   const totalPrice = userCartItems.reduce((acc, curr) => acc + curr.total, 0);
+
+
+  const handlePayment = async () => {
+    toast.success("Payment success!")
+  };
+  
 
   return (
     <div className="lg:px-28 px-2 py-10">
@@ -52,7 +59,7 @@ const Cart: React.FC = () => {
                     <span>Total Price:</span>
                     <span className="text-pink-600">₱ {totalPrice.toLocaleString()}</span>
                   </p>
-                  <button className="bg-pink-500 w-full text-white p-1 mt-4 rounded-md">Checkout</button>
+                  <button className="bg-pink-500 w-full text-white p-1 mt-4 rounded-md" onClick={handlePayment}>Checkout</button>
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import { userSignup, userLogin } from "./controllers/UserController";
 import { productController, getAllProduct } from "./controllers/ProductController";
 
+
 dotenv.config();
 
 const app = express();
@@ -36,6 +37,7 @@ app.post("/uploadProduct", productController)
 
 // get product
 app.get("/product", getAllProduct)
+
 
 // connect to database
 if (!MONGO_URI) {
