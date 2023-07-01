@@ -18,7 +18,7 @@ import Cart from './pages/Cart.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='' element={<App />}>
+    <Route path='/' element={<App />}>
       <Route index element={<Home />} />
       <Route path='menu' element={<Menu />} />
       <Route path='product/:filterby' element={<Products />} />
