@@ -29,14 +29,14 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // user
-app.post("/signup", userSignup)
-app.post("/login", userLogin)
+app.post("signup", userSignup)
+app.post("login", userLogin)
 
 // product api
-app.post("/uploadProduct", productController)
+app.post("uploadProduct", productController)
 
 // get product
-app.get("/product", getAllProduct)
+app.get("product", getAllProduct)
 
 
 // connect to database
