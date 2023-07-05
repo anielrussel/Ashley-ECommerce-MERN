@@ -58,7 +58,7 @@ const CardFeatures: React.FC<Product> = ({
 
   return (
     <div className="flex">
-      <div className="hover:shadow-lg w-[220px] lg:w-auto bg-white rounded-md hover:scale-105 ease-in-out duration-300">
+      <div className="hover:shadow-lg max-w-[160px] lg:max-w-[200px] bg-white hover:scale-105 ease-in-out duration-300">
         <Link to={isMenuPage ? `product/${id}` : `/product/${id}`} replace>
           <img
             src={image}
@@ -71,7 +71,7 @@ const CardFeatures: React.FC<Product> = ({
           <h1 className="pb-2 text-sm">{name}</h1>
           <h1 className="text-pink-700 font-semibold text-sm">₱{price}</h1>
           <button
-            className="bg-pink-500 py-1 px-4 rounded-md text-white text-sm w-full"
+            className="bg-pink-500 py-1 px-4 text-white text-sm w-full"
             onClick={handleAddCartItem}
           >
             Add to cart
