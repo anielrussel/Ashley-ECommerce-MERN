@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
       </div>
       <div className="flex flex-wrap justify-between gap-6 mt-10">
         <div>
-          <h1 className="text-2xl font-bold text-white">Reach us</h1>
+          <h1 className="lg:text-2xl text-lg font-bold text-white">Reach us</h1>
           <span className="flex flex-col pt-5 lg:flex-row text-white text-sm">
             <IoMdCall size={25} color={"white"} />
             <p>+1014 3456 789</p>
@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div>
-          <h1 className="text-2xl font-bold text-white">Company</h1>
+          <h1 className="lg:text-2xl text-lg font-bold text-white">Company</h1>
           <ul className="flex flex-col gap-3 lg:gap-8 text-white mt-4">
             <li>
               <Link to={"/"}>Home</Link>
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div>
-          <h1 className="text-2xl font-bold text-white">Legal</h1>
+          <h1 className="lg:text-2xl text-lg font-bold text-white">Legal</h1>
           <ul className="flex flex-col gap-3 lg:gap-8 text-white mt-4">
             <li>
               <Link to={"/"}>Privacy Policy</Link>
@@ -64,7 +64,9 @@ const Footer: React.FC = () => {
         </div>
 
         <div>
-          <h1 className="text-2xl font-bold text-white">Quick Links</h1>
+          <h1 className="lg:text-2xl text-lg font-bold text-white">
+            Quick Links
+          </h1>
           <ul className="flex flex-col gap-3 lg:gap-8 text-white mt-4">
             <li>
               <Link to={"/"}>Downloads</Link>
@@ -83,9 +85,9 @@ const Footer: React.FC = () => {
             <input
               type="text"
               placeholder="Your email address"
-              className="bg-[#a5a4a4] p-2 rounded-tl-md rounded-bl-md text-white placeholder:text-gray-900 w-[200px]"
+              className="bg-[#a5a4a4] p-2 rounded-tl-md rounded-bl-md text-white placeholder:text-gray-900 w-[200px] placeholder:text-sm"
             />
-            <button className="bg-pink-400 py-2 px-5 rounded-tr-md rounded-br-md text-white">
+            <button className="bg-pink-400 py-2 px-5 rounded-tr-md rounded-br-md text-white text-sm">
               Subscribe
             </button>
           </div>
