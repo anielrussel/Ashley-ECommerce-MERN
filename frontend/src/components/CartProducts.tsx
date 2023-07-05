@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiMinus } from "react-icons/bi";
-import { BsTrashFill } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteCartItem,
@@ -72,8 +72,12 @@ const CartProducts: React.FC<CartItem> = ({
   return (
     <div className="font-jost">
       <div className="flex justify-between bg-white rounded-md">
-        <div className="flex gap-4">
-          <img src={image} alt={name} className="w-[200px] rounded-md" />
+        <div className="flex flex-col lg:flex-row gap-4">
+          <img
+            src={image}
+            alt={name}
+            className="w-full lg:w-[200px] rounded-md"
+          />
           <div className="flex flex-col p-2">
             <h1 className="font-bold text-lg text-gray-700">{name}</h1>
             <p>{category}</p>
@@ -101,17 +105,17 @@ const CartProducts: React.FC<CartItem> = ({
               <p>Total:</p>
               {total && qty && (
                 <p className="text-pink-600 font-semibold">
-                ₱{(total * qty).toLocaleString()}
-              </p>
+                  ₱{(total * qty).toLocaleString()}
+                </p>
               )}
             </div>
           </div>
         </div>
         <div
-          className="p-2 text-gray-700 hover:text-red-500 cursor-pointer"
+          className="absolute lg:relative right-2 p-2 text-gray-700 hover:text-red-500 cursor-pointer"
           onClick={handleDelete}
         >
-          <BsTrashFill />
+          <IoMdClose size={25} />
         </div>
       </div>
     </div>

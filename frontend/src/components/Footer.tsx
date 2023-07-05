@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
             <input
               type="text"
               placeholder="Your email address"
-              className="bg-[#a5a4a4] p-2 rounded-tl-md rounded-bl-md text-white placeholder:text-gray-900 w-[200px] placeholder:text-sm"
+              className="bg-[#a5a4a4] p-2 rounded-tl-md rounded-bl-md text-white placeholder:text-gray-900 w-[150px] placeholder:text-sm"
             />
             <button className="bg-pink-400 py-2 px-5 rounded-tr-md rounded-br-md text-white text-sm">
               Subscribe
