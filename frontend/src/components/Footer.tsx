@@ -79,11 +79,11 @@ const Footer: React.FC = () => {
           <h1 className="text-gray-800 font-bold text-xl pb-4">
             Join our Newsletter
           </h1>
-          <div className="flex w-full pb-4">
+          <div className="flex w-full mx-auto pb-4">
             <input
               type="text"
               placeholder="Your email address"
-              className="bg-[#a5a4a4] p-2 rounded-tl-md rounded-bl-md text-white placeholder:text-gray-900 w-[250px]"
+              className="bg-[#a5a4a4] p-2 rounded-tl-md rounded-bl-md text-white placeholder:text-gray-900 w-[230px]"
             />
             <button className="bg-pink-400 py-2 px-5 rounded-tr-md rounded-br-md text-white">
               Subscribe
